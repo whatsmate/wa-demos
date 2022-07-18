@@ -40,7 +40,7 @@ class WaTextGroupSender
             httpRequest.Headers["X-WM-CLIENT-ID"] = CLIENT_ID;
             httpRequest.Headers["X-WM-CLIENT-SECRET"] = CLIENT_SECRET;
 
-            SingleUrlPayload payloadObj = new SingleUrlPayload() { number = number, url = url };
+            GroupTextPayload payloadObj = new GroupTextPayload() { group_name = groupName, group_admin = groupAdmin, message = message };
             string postData = JsonSerializer.Serialize(payloadObj);
 
             using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
