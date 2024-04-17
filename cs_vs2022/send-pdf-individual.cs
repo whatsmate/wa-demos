@@ -21,8 +21,9 @@ class WaPdfSender
         // TODO: Remember to copy the PDF from ..\assets to the TEMP directory!
         string base64Content = convertFileToBase64("C:\\TEMP\\subwaymap.pdf");
         string fn = "anyname.pdf";
+        string caption = "You should find the map handy.";  // optional; can be empty
         
-        pdfSender.sendDocument(recipient, base64Content, fn);
+        pdfSender.sendDocument(recipient, base64Content, fn, caption);
 
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
@@ -36,7 +37,7 @@ class WaPdfSender
         return base64Encoded;
     }
 
-    public bool sendDocument(string number, string base64Content, string fn)
+    public bool sendDocument(string number, string base64Content, string fn, string caption)
     {
         bool success = true;
 
@@ -49,7 +50,7 @@ class WaPdfSender
             httpRequest.Headers["X-WM-CLIENT-ID"] = CLIENT_ID;
             httpRequest.Headers["X-WM-CLIENT-SECRET"] = CLIENT_SECRET;
 
-            SingleDocPayload payloadObj = new SingleDocPayload() { number = number, document = base64Content, filename = fn};
+            SingleDocPayload payloadObj = new SingleDocPayload() { number = number, caption = caption, document = base64Content, filename = fn};
             string postData = JsonSerializer.Serialize(payloadObj);
 
             using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
@@ -94,6 +95,7 @@ class WaPdfSender
     public class SingleDocPayload
     {
         public string number { get; set; }
+        public string caption { get; set; }
         public string document { get; set; }
         public string filename { get; set; }
     }

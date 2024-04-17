@@ -18,12 +18,14 @@ CLIENT_SECRET="YOUR_OWN_SECRET_HERE"
 number="12025550108"
 base64_document=`base64 -w 0 ../assets/subwaymap.pdf`
 fn="map.pdf"
+caption="You will find it handy."  # optional field
 
 cat > /tmp/jsonbody.txt << _EOM_
   {
     "number": "$number",
     "document": "$base64_document",
     "filename": "$fn",
+    "caption": "$caption"
   }
 _EOM_
 

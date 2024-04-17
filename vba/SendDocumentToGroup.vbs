@@ -2,11 +2,12 @@ Sub Main_Routine()
   ''' The first parameter is the name of the group that you want to send the message to
   ''' The second parameter is the full path to the document file (e.g. PDF)
   ''' The third parameter is the filename displayed to the recipient.
-  WhatsAppDoc_SendtoGroup "Happy Club Group", "C:\Users\Public\subwaymap.pdf", "click_me.pdf"     ''' TODO: Specify the name of the group
+  ''' The fourth parameter is the caption. Empty string OK.
+  WhatsAppDoc_SendtoGroup "Happy Club Group", "C:\Users\Public\subwaymap.pdf", "click_me.pdf", "Hope you like it."     ''' TODO: Specify the name of the group
 End Sub
 
 
-Sub WhatsAppDoc_SendtoGroup(ByRef strGroupName As String, ByRef strFilename As String, ByRef strDisplayName As String)
+Sub WhatsAppDoc_SendtoGroup(ByRef strGroupName As String, ByRef strFilename As String, ByRef strDisplayName As String, ByRef strCaption As String)
   Dim INSTANCE_ID As String, CLIENT_ID As String, CLIENT_SECRET As String, API_URL As String
   Dim strJson As Variant
   Dim sHTML As String
@@ -20,7 +21,7 @@ Sub WhatsAppDoc_SendtoGroup(ByRef strGroupName As String, ByRef strFilename As S
   API_URL = "http://api.whatsmate.net/v3/whatsapp/group/document/message/" & INSTANCE_ID
 
   contentInBase64 = ConvertFileToBase64(strFilename)
-  strJson = "{""group_name"": """ & strGroupName & """, ""document"": """ & contentInBase64 & """, ""filename"": """ & strDisplayName & """}"
+  strJson = "{""group_name"": """ & strGroupName & """, ""document"": """ & contentInBase64 & """, ""filename"": """ & strDisplayName & """, ""caption"": """ & strCaption & """}"
 
   Set oHttp = CreateObject("Msxml2.XMLHTTP")
   oHttp.Open "POST", API_URL, False

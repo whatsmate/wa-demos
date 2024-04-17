@@ -15,12 +15,14 @@ CLIENT_SECRET="YOUR_OWN_SECRET_HERE"
 group_name="YOUR UNIQUE GROUP NAME GOES HERE"
 base64_document=`base64 -w 0 ../assets/subwaymap.pdf`
 fn="map.pdf"
+caption="You will find it handy."  # optional field
 
 cat > /tmp/jsonbody.txt << _EOM_
   {
     "group_name": "$group_name",
     "document": "$base64_document",
     "filename": "$fn",
+    "caption": "$caption"
   }
 _EOM_
 

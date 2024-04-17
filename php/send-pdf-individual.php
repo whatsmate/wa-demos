@@ -7,11 +7,13 @@
   $docData = file_get_contents($pathToDocument);
   $base64Doc = base64_encode($docData);
   $fn = "anyname.pdf";                      // TODO: Replace it with a name you like
+  $caption = "You will find the map handy.";    // caption is optional; can be empty
 
   $postData = array(
     'number' => '12025550108',  // TODO: Specify the recipient's number (NOT the gateway number) here.
     'document' => $base64Doc,
-    'filename' => $fn
+    'filename' => $fn,
+    'caption' => $caption
   );
 
   $headers = array(

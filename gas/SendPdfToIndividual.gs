@@ -2,6 +2,8 @@
 function demoSendPdfInDrive() {
   var destNumber = "12025550108";  // TODO: Specify the recipients number here. NOT THE GATEWAY NUMBER!
   var pdfFilename = "subwaymap.pdf";  // TODO: This file must be uniquely named and, of course, exist in your Google Drive!!!
+  var filename = "anyname.pdf";       // TODO: This is the name of the file displayed to the recipient. 
+  var caption = "You should find the map handy.";  // TODO: caption is optional. Can be null.
   
   var pdfBase64 = base64encodeFileByName(pdfFilename);
   if (pdfBase64 == null) {
@@ -9,11 +11,11 @@ function demoSendPdfInDrive() {
     return;
   }
   
-  sendWhatsappPdf(destNumber, pdfBase64);
+  sendWhatsappPdf(destNumber, pdfBase64, filename, caption);
 }
 
 
-function sendWhatsappPdf(destNumber, pdfBase64) {
+function sendWhatsappPdf(destNumber, pdfBase64, filename, caption) {
   var instanceId = "YOUR_INSTANCE_ID_HERE";  // TODO: Replace it with your gateway instance ID here
   var clientId = "YOUR_CLIENT_ID_HERE";  // TODO: Replace it with your Forever Green client ID here
   var clientSecret = "YOUR_CLIENT_SECRET_HERE";   // TODO: Replace it with your Forever Green client secret here
@@ -21,7 +23,8 @@ function sendWhatsappPdf(destNumber, pdfBase64) {
   var jsonPayload = JSON.stringify({
     number: destNumber,
     document: pdfBase64,
-    filename: "anyname.pdf"
+    filename: filename,
+    caption: caption
   });
   
   var options = {

@@ -21,8 +21,9 @@ class WaPdfGroupSender
         // TODO: Remember to copy the JPG from ..\assets to the TEMP directory!
         string base64Content = convertFileToBase64("C:\\TEMP\\subwaymap.pdf");
         string fn = "anyname.pdf";
+        string caption = "You should find the map handy.";  // optional; can be empty
         
-        groupDocSender.sendGroupDocument(group, base64Content, fn);
+        groupDocSender.sendGroupDocument(group, base64Content, fn, caption);
 
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
@@ -36,7 +37,7 @@ class WaPdfGroupSender
         return base64Encoded;
     }
 
-    public bool sendGroupDocument(string group, string base64Content, string fn)
+    public bool sendGroupDocument(string group, string base64Content, string fn, string caption)
     {
         bool success = true;
 
@@ -49,7 +50,7 @@ class WaPdfGroupSender
             httpRequest.Headers["X-WM-CLIENT-ID"] = CLIENT_ID;
             httpRequest.Headers["X-WM-CLIENT-SECRET"] = CLIENT_SECRET;
 
-            GroupDocumentPayload payloadObj = new GroupDocumentPayload() { group_name = group, document = base64Content, filename = fn};
+            GroupDocumentPayload payloadObj = new GroupDocumentPayload() { group_name = group, caption = caption, document = base64Content, filename = fn};
             string postData = JsonSerializer.Serialize(payloadObj);
 
             using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
@@ -94,6 +95,7 @@ class WaPdfGroupSender
     public class GroupDocumentPayload
     {
         public string group_name { get; set; }
+        public string caption { get; set; }
         public string document { get; set; }
         public string filename { get; set; }
     }

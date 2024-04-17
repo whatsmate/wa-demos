@@ -42,6 +42,7 @@ public class WaPdfSender {
         String number = null;
         String document = null;
         String filename = null;
+        String caption = null;
     }
     
     // TODO: Replace the following with your gateway instance ID, Forever Green
@@ -62,15 +63,16 @@ public class WaPdfSender {
         Path docPath = Paths.get("../assets/subwaymap.pdf");
         byte[] docBytes = Files.readAllBytes(docPath);
         String filename = "anyname.pdf";
+        String caption = "You will find the map handy.";  // caption is optional; can be null
         
         WaPdfSender docSender = new WaPdfSender();
-        docSender.sendDocMessage(recipient, docBytes, filename);
+        docSender.sendDocMessage(recipient, docBytes, filename, caption);
     }
 
     /**
      * Sends out a WhatsApp message (a document) to a person
      */
-    public void sendDocMessage(String recipient, byte[] docBytes, String filename)
+    public void sendDocMessage(String recipient, byte[] docBytes, String filename, String caption)
             throws Exception {
         byte[] encodedBytes = Base64.encodeBase64(docBytes);
         String base64Doc = new String(encodedBytes);
@@ -79,6 +81,7 @@ public class WaPdfSender {
         docMsgObj.number = recipient;
         docMsgObj.document = base64Doc;
         docMsgObj.filename = filename;
+        docMsgObj.caption = caption;
 
         Gson gson = new Gson();
         String jsonPayload = gson.toJson(docMsgObj);

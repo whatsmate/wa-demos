@@ -11,7 +11,8 @@ var clientSecret = "YOUR_OWN_SECRET_ID";
 var jsonPayload = JSON.stringify({
     number: "12025550108",  // FIXME
     document: fs.readFileSync("../assets/subwaymap.pdf").toString('base64'),  // FIXME
-    filename: "anyname.pdf" // FIXME
+    filename: "anyname.pdf", // FIXME
+    caption: "Hope you like it"  // FIXME. caption is optional. Can be null.
 });
 
 var options = {

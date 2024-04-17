@@ -13,6 +13,7 @@ clientSecret = "YOUR_OWN_SECRET_HERE"
 number = '12025550108'  # FIXME
 fullpath_to_document = "../assets/subwaymap.pdf"
 fn = "anyname.pdf"
+caption = "You will find it useful"  # caption is optional; can be None
 
 # Encode the document in base64 format
 doc_base64 = None
@@ -27,7 +28,8 @@ headers = {
 jsonBody = {
     'number': number,
     'document': doc_base64,
-    'filename': fn
+    'filename': fn,
+    'caption': caption
 }
 
 r = requests.post("http://api.whatsmate.net/v3/whatsapp/single/document/message/%s" % instanceId, 
