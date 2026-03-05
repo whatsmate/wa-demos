@@ -51,7 +51,7 @@ public class WaPdfGroupSender {
     private static final String CLIENT_ID = "YOUR_CLIENT_ID_HERE";
     private static final String CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE";
 
-    private static final String GATEWAY_URL = "http://api.whatsmate.net/v3/whatsapp/group/document/message/" + INSTANCE_ID;
+    private static final String GATEWAY_URL = "https://api.whatsmate.net/v3/whatsapp/group/document/message/" + INSTANCE_ID;
 
     /**
      * Entry Point

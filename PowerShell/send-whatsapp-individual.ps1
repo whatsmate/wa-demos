@@ -11,7 +11,7 @@ $jsonObj = @{'number'=$number;
              'message'=$message;}
 
 Try {
-  $res = Invoke-WebRequest -Uri "http://api.whatsmate.net/v3/whatsapp/single/text/message/$instanceId" `
+  $res = Invoke-WebRequest -Uri "https://api.whatsmate.net/v3/whatsapp/single/text/message/$instanceId" `
                           -Method Post   `
                           -Headers @{"X-WM-CLIENT-ID"=$clientId; "X-WM-CLIENT-SECRET"=$clientSecret;} `
                           -ContentType "application/json; charset=utf-8" `

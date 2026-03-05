@@ -57,7 +57,7 @@ function sendWhatsappImageToGroup(groupName, imageBase64) {
   };
   
   Logger.log("Calling API to send image to this group  " + groupName);
-  UrlFetchApp.fetch("http://api.whatsmate.net/v3/whatsapp/group/image/message/" + instanceId, options);
+  UrlFetchApp.fetch("https://api.whatsmate.net/v3/whatsapp/group/image/message/" + instanceId, options);
 }
 
 
@@ -87,7 +87,7 @@ function sendWhatsappDocToGroup(groupName, docBase64, filename) {
   };
   
   Logger.log("Calling API to send doc to this group  " + groupName);
-  UrlFetchApp.fetch("http://api.whatsmate.net/v3/whatsapp/group/document/message/" + instanceId, options);
+  UrlFetchApp.fetch("https://api.whatsmate.net/v3/whatsapp/group/document/message/" + instanceId, options);
 }
 
 

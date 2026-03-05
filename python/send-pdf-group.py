@@ -32,7 +32,7 @@ jsonBody = {
     'caption': caption
 }
 
-r = requests.post("http://api.whatsmate.net/v3/whatsapp/group/document/message/%s" % instanceId, 
+r = requests.post("https://api.whatsmate.net/v3/whatsapp/group/document/message/%s" % instanceId, 
     headers=headers,
     json=jsonBody)
 

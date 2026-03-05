@@ -35,7 +35,7 @@ function sendWhatsappImage(destNumber, imageBase64) {
   };
   
   Logger.log("Calling API to send image to this number  " + destNumber);
-  UrlFetchApp.fetch("http://api.whatsmate.net/v3/whatsapp/single/image/message/" + instanceId, options);
+  UrlFetchApp.fetch("https://api.whatsmate.net/v3/whatsapp/single/image/message/" + instanceId, options);
 }
 
 

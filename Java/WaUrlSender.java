@@ -9,7 +9,7 @@ public class WaUrlSender {
   private static final String INSTANCE_ID = "YOUR_INSTANCE_ID_HERE";
   private static final String CLIENT_ID = "YOUR_CLIENT_ID_HERE";
   private static final String CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE";
-  private static final String WA_GATEWAY_URL = "http://api.whatsmate.net/v3/whatsapp/single/url/message/" + INSTANCE_ID;
+  private static final String WA_GATEWAY_URL = "https://api.whatsmate.net/v3/whatsapp/single/url/message/" + INSTANCE_ID;
 
   /**
    * Entry Point

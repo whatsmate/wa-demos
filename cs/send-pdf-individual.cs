@@ -11,7 +11,7 @@ class WaPdfSender
     private static string CLIENT_ID = "YOUR_CLIENT_ID_HERE";
     private static string CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE";
 
-    private static string DOCUMENT_SINGLE_API_URL = "http://api.whatsmate.net/v3/whatsapp/single/document/message/" + INSTANCE_ID;
+    private static string DOCUMENT_SINGLE_API_URL = "https://api.whatsmate.net/v3/whatsapp/single/document/message/" + INSTANCE_ID;
 
     static void Main(string[] args)
     {

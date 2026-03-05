@@ -19,7 +19,7 @@
     'X-WM-CLIENT-SECRET: '.$CLIENT_SECRET
   );
 
-  $url = 'http://api.whatsmate.net/v3/whatsapp/group/image/message/' . $INSTANCE_ID;
+  $url = 'https://api.whatsmate.net/v3/whatsapp/group/image/message/' . $INSTANCE_ID;
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

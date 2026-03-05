@@ -18,6 +18,6 @@ curl -X POST \
      -H "X-WM-CLIENT-SECRET: $CLIENT_SECRET" \
      -H "Content-Type: application/json" \
      -d "$jsonPayload"   \
-     http://api.whatsmate.net/v3/whatsapp/group/url/message/$INSTANCE_ID
+     https://api.whatsmate.net/v3/whatsapp/group/url/message/$INSTANCE_ID
 
 

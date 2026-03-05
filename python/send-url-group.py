@@ -23,7 +23,7 @@ jsonBody = {
     'url': url
 }
 
-r = requests.post("http://api.whatsmate.net/v3/whatsapp/group/url/message/%s" % instanceId, 
+r = requests.post("https://api.whatsmate.net/v3/whatsapp/group/url/message/%s" % instanceId, 
     headers=headers,
     json=jsonBody)
 

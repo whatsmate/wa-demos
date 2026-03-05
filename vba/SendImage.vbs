@@ -17,7 +17,7 @@ Sub WhatsAppImage_Send(ByRef strNumber As String, ByRef strFilename As String, B
   INSTANCE_ID = "YOUR_INSTANCE_ID_HERE"
   CLIENT_ID = "YOUR_CLIENT_ID_HERE"
   CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE"
-  API_URL = "http://api.whatsmate.net/v3/whatsapp/single/image/message/" & INSTANCE_ID
+  API_URL = "https://api.whatsmate.net/v3/whatsapp/single/image/message/" & INSTANCE_ID
 
   contentInBase64 = ConvertFileToBase64(strFilename)
   strJson = "{""number"": """ & strNumber & """, ""image"": """ & contentInBase64 & """, ""caption"": """ & strCaption & """}"

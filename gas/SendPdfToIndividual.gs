@@ -39,7 +39,7 @@ function sendWhatsappPdf(destNumber, pdfBase64, filename, caption) {
   };
   
   Logger.log("Calling API to send PDF to this number  " + destNumber);
-  UrlFetchApp.fetch("http://api.whatsmate.net/v3/whatsapp/single/document/message/" + instanceId, options);
+  UrlFetchApp.fetch("https://api.whatsmate.net/v3/whatsapp/single/document/message/" + instanceId, options);
 }
 
 

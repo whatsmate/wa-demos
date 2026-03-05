@@ -31,6 +31,6 @@ curl --show-error -X POST \
      -H "X-WM-CLIENT-SECRET: $CLIENT_SECRET" \
      -H "Content-Type: application/json" \
      --data-binary @/tmp/jsonbody.txt  \
-     http://api.whatsmate.net/v3/whatsapp/group/image/message/$INSTANCE_ID
+     https://api.whatsmate.net/v3/whatsapp/group/image/message/$INSTANCE_ID
 
 echo -e "\n=== END OF DEMO ==="
