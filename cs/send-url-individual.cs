@@ -32,6 +32,10 @@ class WaUrlSender
 
         try
         {
+            // Explicitly force ServicePointManager to use TLS 1.2 (3072)
+            // This applies globally to WebRequest, WebClient, and HttpClient (on .NET Framework)
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            
             using (WebClient client = new WebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
